@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<style>
+		div#div1 {
+			border: 1px black solid;
+		}
+		
+		div#div2 {
+			margin-top: 5px;
+			border: 1px black solid;
+		}
+		div#div3 {
+			margin-top: 5px;
+			border: 1px black solid;
+			overflow: hidden;
+		}
+		div#wrapper {
+			border: 1px solid black;
+			width: 50%;
+			line-height: 100%;
+			overflow: hidden;
+		}
+		
+		table, th, td {
+		border: 1px solid black;
+		border-collapse: collapse;
+	}
+		th, td {
+		padding: 5px;
+	}
+	</style>
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>DOM examples</title>
+		
+	<script>
+	function myFunction() {
+			
+		}	
+	</script>
+		
+	</head>
+	
+	<body>
+		<div id="wrapper">
+			
+		<div id="div1">
+		<h1>Add a comment box</h1>
+		<button onclick="myFunction()">Press Me</button>
+		<br>
+		<input id="data" type="text" size="50" value="New text field">
+		<br>
+		<div id="content"></div>
+		
+		<script>
+			function myFunction() {
+			var x = document.createElement("INPUT");
+			x.setAttribute("type", "text");
+			x.setAttribute("value", "New text field");
+			x.setAttribute("size", "50");
+			x.setAttribute("id", "content");
+			document.getElementById("content").appendChild(x);
+		}
+		</script>
+		
+		</div>
+		
+		<div id="div2">
+		<h1>Add a cell box</h1>
+		<input type="button" onclick="insRow('myTable')" value="Insert row">
+		<br>
+		<table id="myTable" style="border: 1px solid black">
+		<tr>
+			<td>Row1 cell1</td>
+			<td>Row1 cell2</td>
+		</tr>
+		<tr>
+			<td>Row2 cell1</td>
+			<td>Row2 cell2</td>
+		</tr>
+		<tr>
+			<td>Row3 cell1</td>
+			<td>Row3 cell2</td>
+		</tr>
+		</table>
+		
+		<script>
+			function insRow(id) {
+				var x = document.getElementById(id).insertRow(0);
+				var y = x.insertCell(0);
+				var z = x.insertCell(1);
+				y.innerHTML = z.innerHTML = "New";
+			}
+		</script>
+		</div>
+		
+		<div id="div3">
+			<h1>Submission Form</h1>
+			<form id="frm1" action="form_action.asp">
+				First name: <input type="text" name="fname" value=""><br>
+				Last name: <input type="text" name="lname" value=""><br><br>
+		</form> 
+			
+			<button onclick="myFunction3()">Press Me</button>
+			<div id="demo"></div>
+			
+		<script>
+			function myFunction3() {
+				var x = document.getElementById("frm1");
+				var text = "";
+				var i;
+				for (i = 0; i < x.length ;i++) {
+					text += x.elements[i].value + "<br>";
+    				}
+					document.getElementById("demo").innerHTML = text;
+				}
+		</script>
+			
+		</div>
+		
+		</div>
+		
+	</body>
+</html>
