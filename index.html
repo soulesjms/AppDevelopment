@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        <script>
+            function myFunction() {
+                document.getElementById("rectangle").innerHTML = "This could be used in navigation bar.";
+            }
+
+            function myFunction2() {
+                document.getElementById("rectangle").innerHTML = "";
+            }
+        </script>
+
+        <style type="text/css">
+
+
+
+            body{
+                background-color: #3366ff;
+            }
+
+            #tranformations{
+                height:40em;
+                width:40em;
+                border-width:1px;
+                border-style: outset;
+                position:relative;
+                float:left;                    
+            }
+
+            #square{
+                height:6em;
+                width:6em;
+                color:#fff;
+                margin-left:15%;
+                margin-top:5%;
+                border: 10px grey solid;
+                background-color: #000;
+                border-style: outset;
+                transition:all 2s ease-in-out;
+                float:left;
+                transform: rotate(40deg);
+            }
+
+            #square:hover{
+                transition:all 1s ease-in-out;
+                height:12em;
+                width:12em;
+                /*transform: rotateY(180deg);*/
+                /*transform: rotateX(720deg);*/
+                transform: rotateZ(400deg);
+
+            }
+
+            #rectangle{
+                margin-top:5%;
+                text-align:center;
+                float:right;
+                background-color:green;
+                border:10px black solid;
+                width: 150px;
+                height: 50px;   
+                transition:height .5s;
+            }   
+
+            #rectangle:hover{
+                transition:height 1s;
+                height: 400px;
+
+            }
+
+            .colors{
+                height:600px;
+                width:600px;
+                position:relative;
+                border-width:1px;
+                border-style: outset;
+                float:left;   
+            }
+
+            #green{
+                background-color:green;
+                transform: rotateX(-90deg) translateY(-7.5em) translateZ(15em);
+            }
+
+            #blue{
+                background-color:blue;
+                transform: rotateX(-180deg) translateY(-15em) translateZ(7.5em);
+
+            }
+
+            #white{
+                background-color:white;
+                transform: rotateX(-270deg) translateY(-7.5em);
+
+            }
+
+            #grey{
+                background-color:grey;
+
+            }
+
+            .slider {
+                height: 15em;
+                width: 24em;
+                position: relative;
+                text-align: center;
+                margin-top: 2em;
+                margin-left: 50em;
+                float:left;
+            }
+            .slider input {
+                position: relative;
+                top: -1.5em;
+            }
+            .slider ul {
+                height: 15em;
+                width: 24em;
+                position: relative;
+                -webkit-transform: perspective(1000);
+                -webkit-transform-style: preserve-3d;
+                -webkit-transition: 1s;
+            }
+            .slider li {
+                left: 0;
+                list-style: none;
+                position: absolute;
+                top: 0;
+                -webkit-transform: translateZ(7.5em);
+                -webkit-transform-origin: 0 0;
+                -webkit-transform-style: preserve-3d;
+            }
+            
+            .slider li:nth-child(2) {
+                -webkit-transform: rotateX(-90deg) translateY(-7.5em) translateZ(15em);
+            }
+            .slider li:nth-child(3) {
+                -webkit-transform: rotateX(-180deg) translateY(-15em) translateZ(7.5em);
+            }
+            .slider li:nth-child(4) {
+                -webkit-transform: rotateX(-270deg) translateY(-7.5em);
+            }
+            
+            .slider img {
+                height: 15em;
+                width: 24em;
+                vertical-align: top;
+            }
+            #slide2:checked ~ ul {
+                -webkit-transform: perspective(1000) rotateX(90deg);
+            }
+            
+            #slide3:checked ~ ul {
+                -webkit-transform: perspective(1000) rotateX(180deg);
+            }
+            
+            #slide4:checked ~ ul {
+                -webkit-transform: perspective(1000) rotateX(270deg);
+            }
+            
+            .picture_rotate{
+                height: 15em;
+                width: 24em;
+                position: absolute;
+                margin-top: 22em;
+                margin-left: 50em;
+                float:left;
+            }
+            
+            .picture_rotate img{
+                height: 15em;
+                width: 24em;
+                vertical-align: top;
+            }
+            
+            .picture_rotate ul{
+                height: 15em;
+                width: 24em;
+                position: relative;
+                -webkit-transform: perspective(1000);
+                -webkit-transform-style: preserve-3d;
+                -webkit-transition: 1s;
+            }
+            
+            .picture_rotate li{
+                list-style: none;
+                position: absolute;
+                -webkit-transform: translateZ(7.5em);
+                -webkit-transform-style: preserve-3d;
+            }
+            
+            .picture_rotate li:nth-child(2) {
+                -webkit-transform: rotateX(-90deg) translateY(-7.5em) translateZ(15em);
+            }
+            .picture_rotate li:nth-child(3) {
+                -webkit-transform: rotateX(-180deg) translateY(-15em) translateZ(7.5em);
+            }
+            .picture_rotate li:nth-child(4) {
+                -webkit-transform: rotateX(-270deg) translateY(-7.5em);
+            }
+            
+            
+            #transition{
+                height:40em;
+                width:40em;
+                border-width:1px;
+                border-style:dashed;
+                position:relative;
+                float:left;   
+                text-align:center;
+            }
+            
+            #transition:hover{
+                
+            }
+                
+            #transition_fast{
+                height:7em;
+                width:7em;
+                border-width:.5em;
+                border-color:black;
+                border-style: outset;
+                position:relative;
+                top: 2%;
+                left: 2%;
+                transition-timing-function:cubic-bezier(.9, -.01, .9, -.2); 
+                transition-duration:2s; 
+                
+            }
+            
+            #transition_fast:hover{
+               border-radius:6em;
+               transition-property:all;
+               transition-duration:3s; 
+               transition-timing-function:cubic-bezier(.9, -.01, .9, -.2); 
+               transition-delay:.2s;
+               transform: rotateZ(720deg);
+               position: relative;
+               top: 2%;
+               left: 78%;
+            }
+            
+            #transition_slow{
+                height:7em;
+                width:7em;
+                border-width:.5em;
+                border-color:black;
+                border-style: outset;
+                position:relative;
+                top: 6%;
+                left: 2%;
+                transition-timing-function:cubic-bezier(.01, .01, .01, .01); 
+                transition-duration:2s;
+            }
+            
+            #transition_slow:hover{
+               border-radius:6em;
+               transition-property:all;
+               transition-duration:6s; 
+               transition-timing-function:cubic-bezier(.01, .01, .01, .01); 
+               transition-delay:.2s;
+               transform: rotateZ(720deg);
+               position: relative;
+               top:6%;
+               left: 78%;
+            }
+            
+            #transition_normal{
+                height:7em;
+                width:7em;
+                border-width:.5em;
+                border-color:black;
+                border-style: outset;
+                position:relative;
+                top: 10%;
+                left: 2%;
+                transition-timing-function:cubic-bezier(.7, -.2, .5, .3); 
+                transition-duration:2s; 
+            }
+            
+            #transition_crazy{
+                height:7em;
+                width:7em;
+                border-width:.5em;
+                border-color:black;
+                border-style: outset;
+                position:relative;
+                top: 14%;
+                left: 2%;
+                transition-timing-function:cubic-bezier(.7, -.2, .5, .3); 
+                transition-duration:2s;
+            }
+            
+            
+            
+            
+        </style>
+        <title>App</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div id="tranformations">
+            <div id="navigation"></div>
+            <div id="rotatey"></div>
+            <div id="squarediv">
+                <div id="square" ></div>
+            </div>
+            <div id="rectangle" onclick="myFunction()" ondblclick="myFunction2()"></div>
+            <!--<div id="square"><img src= "square.png" alt="Square"/></div>-->
+            <!--<div id="rectangle"><img src= "square.png" alt="Square"/></div>-->
+            <!--        <div id="circle">This is some text</div>
+                    <div id="triangle">This is some text</div>-->
+        </div>
+        
+        <div id="transition">
+            
+            <div id="transition_fast"><br>Lets go fast!</div>
+            <div id="transition_slow"><br>Lets go slow!</div>
+            <div id="transition_normal"><br>Lets go normal!</div>
+            <div id="transition_crazy"><br>Lets go crazy!</div>
+        </div>
+
+        <div class="slider">
+            <input type="radio" id="slide1" name="slide" checked>
+            <input type="radio" id="slide2" name="slide">
+            <input type="radio" id="slide3" name="slide">
+            <input type="radio" id="slide4" name="slide">
+            <ul>
+                <li>
+                    <img src="DWD.jpg">
+                </li>
+                <li>
+                    <img src="KDD.jpg">
+                </li>
+                <li>
+                    <img src="LJD.jpg">
+                </li>
+                <li>
+                    <img src="PPD.jpg">
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>
