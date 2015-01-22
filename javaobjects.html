@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>ECCH</title>
+    <script>
+
+        var arrr = [3, 2, 1];
+
+        function reptile()
+        {
+            var blood = "cold";
+            var scales = true;
+            lizard.call(this, length, name, type, poison);
+        }
+
+        function lizard()
+        {
+            var length;
+            var name;
+            var type = "yellowthing";
+            var poison;
+        }
+
+        function cake(colors, flavor, layered, color, frostflavor, texture)
+        {
+            this.colors = colors;
+            this.flavor = flavor;
+            this.layered = layered;
+            frosting.call(this, color, frostflavor, texture);
+        }
+
+        function frosting(color, frostflavor, texture)
+        {
+            this.color = color;
+            this.frostflavor = frostflavor;
+            this.texture = texture;
+        }
+
+        function makelizard()
+        {
+            var lizname = document.getElementById("lizardname").value;
+            monitor = new lizard();
+            monitor.name = lizname;
+            //lizard = new Object();
+            //lizard.name = lizname;
+            document.getElementById("slide").innerHTML = lizname;
+            alert("lizard created. Name: " + monitor.name + " and its type is " + monitor.type);
+            view(monitor);
+            birthday = new cake("white", "vanilla", false, "brown", "chocolate", "smooth");
+            alert("Cake finished! Flavor: " + birthday.flavor + " and " + birthday.frostflavor + " frosting.");
+            view(birthday);
+        }
+
+        function view(thing)
+        {
+            alert("View started:");
+            for (var i in thing)
+                alert(thing[i]);
+        }
+
+        function Arrayfunc()
+        {
+            document.getElementById("slide").innerHTML = arrr;
+        }
+
+        function ArraySort()
+        {
+            arrr.sort();
+        }
+    </script>
+</head>
+<body>
+    <p>Eccch</p>
+    <input type="text" id="lizardname" />
+    <br />
+    <br />
+    <input type="button" name="Make It" value="Make It" onclick="makelizard()" />
+    <table>
+        <tr>
+            <td id="slide"></td>
+        </tr>
+    </table>
+    <br />
+    <input type="button" name="ArrayMesses" value="ArrayMesses" onclick="Arrayfunc()" /> <input type="button" name="Arrsort" value="Arrsort" onclick="ArraySort()" />
+</body>
+</html>
+
