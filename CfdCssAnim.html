@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        #movedeal {
+            width: 100px;
+            height: 100px;
+            background: red;
+            -webkit-animation: squaremess 10s;
+            animation: squaremess 10s;
+            animation-iteration-count: infinite;
+            -webkit-animation-iteration-count: infinite;
+        }
+        @-webkit-keyframes squaremess {
+            0% {}
+            50% {transform: translate(0px, 400px);}
+            67% {transform: translate(200px, 400px);}
+            84% {transform: translate(500px, 100px);}
+            100% {transform: translate(0px, 0px);}
+        }
+        @keyframes squaremess {
+            0% {}
+            50% {transform: translate(0px, 400px);}
+            67% {transform: translate(200px, 400px);}
+            84% {transform: translate(500px, 100px);}
+            100% {transform: translate(0px, 0px);}
+        }
+
+        #rotation:hover {
+            -webkit-animation: circles 15s;
+            animation: circles 15s;
+            animation-iteration-count: infinite;
+            -webkit-animation-iteration-count: infinite;
+        }
+        @-webkit-keyframes circles {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            20% {
+                transform: rotate(100deg);
+            }
+
+            45% {
+                transform: rotate(150deg);
+            }
+
+            75% {
+                transform: rotate(290deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes circles {
+            0% {transform:rotate(0deg);}
+            20% {transform:rotate(100deg);}
+            45% {transform:rotate(150deg);}
+            75% {transform:rotate(290deg);}
+            100% {transform:rotate(360deg);}
+        }
+
+        .shake {
+            -webkit-animation: shake 2s;
+            animation: shake 2s;
+            animation-iteration-count: 1;
+            -webkit-animation-iteration-count: 1;
+        }
+        @keyframes shake {
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+
+            10%, 30%, 50%, 70%, 90% {
+                transform: translate(-10px, 0);
+            }
+
+            20%, 40%, 60%, 80% {
+                transform: translate(10px, 0);
+            }
+        }
+        @-webkit-keyframes shake {
+            0%, 100% {
+                -webkit-transform: translate(0, 0);
+            }
+
+            10%, 30%, 50%, 70%, 90% {
+                -webkit-transform: translate(-10px, 0);
+            }
+
+            20%, 40%, 60%, 80% {
+                -webkit-transform: translate(10px, 0);
+            }
+        }
+
+        .pulse {
+            -webkit-animation: pulse 1s;
+            animation: pulse 1s;
+            animation-iteration-count: 1;
+            -webkit-animation-iteration-count: 1;
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(1, 1);
+            }
+
+            50% {
+                transform: scale(1.05, 1.05);
+            }
+
+            100% {
+                transform: scale(1, 1);
+            }
+        }
+        @-webkit-keyframes pulse {
+            0% {
+                -webkit-transform: scale(1, 1);
+            }
+
+            50% {
+                -webkit-transform: scale(1.05, 1.05);
+            }
+
+            100% {
+                -webkit-transform: scale(1, 1);
+            }
+        }
+
+        .tada {
+            -webkit-animation: tada 1s;
+            animation: tada 1s;
+            -webkit-animation-iteration-count:1;
+            animation-iteration-count:1;
+        }
+        @keyframes tada {
+            0% {
+                transform: scale(1, 1);
+            }
+
+            10%, 20% {
+                transform: scale(.9, .9) rotate(-5deg);
+            }
+
+            30%, 50%, 70%, 90% {
+                transform: scale(1.1, 1.1) rotate(5deg);
+            }
+
+            40%, 60%, 80% {
+                transform: scale(1.1, 1.1) rotate(-5deg);
+            }
+
+            100% {
+                transform: scale(1, 1);
+            }
+        }
+        @-webkit-keyframes tada {
+            0% {
+                -webkit-transform: scale(1, 1);
+            }
+
+            10%, 20% {
+                -webkit-transform: scale(.9, .9) rotate(-5deg);
+            }
+
+            30%, 50%, 70%, 90% {
+                -webkit-transform: scale(1.1, 1.1) rotate(5deg);
+            }
+
+            40%, 60%, 80% {
+                -webkit-transform: scale(1.1, 1.1) rotate(-5deg);
+            }
+
+            100% {
+                -webkit-transform: scale(1, 1);
+            }
+        }
+    </style>
+    <script>
+        function shakepic() {
+            document.getElementById("shakeimg").className = "shake";
+            window.setTimeout(setnorm, 3000);
+        }
+        function pulseanim() {
+            document.getElementById("shakeimg").className = "pulse";
+            window.setTimeout(setnorm, 2000);
+        }
+        function setnorm() {
+            document.getElementById("shakeimg").className = null;
+        }
+    </script>
+</head>
+<body>
+    <div id="movedeal"></div>
+    <img src="http://upload.wikimedia.org/wikipedia/commons/f/f3/Exclamation_mark.png" id="tada" class="tada">
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <div><img src="http://www.eukleides.org/img/spiral.png" id="rotation"></div>
+    <br />
+    <br />
+    <img src="http://blog.syracuse.com/healthfitness/2009/01/medium_shake.jpg" id="shakeimg">
+    <input type="button" name="ShakeButton" value="Shake!" onclick="shakepic()"/>
+    <input type="button" name="PulseButton" value="Pulse!" onclick="pulseanim()" />
+</body>
+</html>
