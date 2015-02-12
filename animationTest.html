@@ -46,8 +46,46 @@ body
     color: #000000;
 }
 
-@-webkit-keyframes myfirst {
-		
+#anotherDiv {
+	animation-iteration-count: infinite;
+	animation-name:myAnimTwo;
+	animation-duration: 25s;
+}
+#anotherDivTwo {
+	width: 100px;
+    height: 100px;
+    background: red;
+    position: relative;
+	animation-name: myAnimThree;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-play-state: running;
+}
+#anotherDivThree {
+	animation-name:brokenTest;
+	animation-duration: 25s;
+}
+
+#anotherDivFour {
+	animation-name:brokenTestTwo;
+	animation-duration: 4s;
+}
+
+#anotherDivFive {
+	width: 100px;
+    height: 100px;
+    background: red;
+    position: relative;
+	animation-name:brokenTestThree;
+	animation-duration: 10s;
+}
+#anotherDivSix {
+	animation-name:myAnimFour;
+	animation-duration: 4s;
+	animation-iteration-count: infinite;
 }
 
 @keyframes myAnim {
@@ -57,16 +95,90 @@ body
     25% { opacity: 0; }
     100% { opacity: 0; }
 }
+
+@keyframes myAnimTwo {
+    0%   {background: red;}
+    25%  {background: yellow;}
+    50%  {background: blue;}
+    100% {background: green;}
+}
+@keyframes myAnimThree {
+    0%   {background:red; left:0px; top:0px;}
+    25%  {background:yellow; left:200px; top:0px;}
+    50%  {background:blue; left:200px; top:200px;}
+    75%  {background:green; left:0px; top:200px;}
+    100% {background:red; left:0px; top:0px;}
+}
+@keyframes myAnimFour {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+@keyframes brokenTestFour {
+	to { opacity: 1; }
+	from { opacity: 0; }
+}
+@keyframes brokenTest {
+    0% { opacity: 0; animation-timing-function:ease; height: 0px; }
+    25% { opacity: 1; }
+    50% { opacity: 1; }
+    75% { opacity: -1; }
+    100% { opacity: 0; }
+}
+@keyframes brokenTestTwo {
+    -25% { opacity: 0; animation-timing-function:ease; height: 0px; }
+    25% { opacity: 1; }
+    50% { opacity: 0; }
+    75% { opacity: 0; }
+    100% { opacity: 0; }
+}
+@keyframes brokenTestThree {
+	0%   {background:red; left:-50px; top:0px;}
+    25%  {background:yellow; left:200px; top:0px;}
+    50%  {background:blue; left:200px; top:200px;}
+    75%  {background:green; left:-50px; top:200px;}
+    100% {background:red; left:-50px; top:0px;}
+}
+
 </style>
 </head>
 
 <body>
-Here is an example of animation using CSS.
+Animate multiple words
     <div id="words" style="font-size:36px">
         <span>Hello.</span>
         <span>This</span>
         <span>is</span>
         <span>Awesome</span>
-    </div>
+		<br /><br />
+    
+	</div>
+	Animate Background Color
+	<div id="anotherDiv" style="font-size:20px">
+		Awesome
+	</div>	
+	Animate Position
+	<div id="anotherDivTwo" style="font-size:20px">
+		Awesome
+	</div>
+	A negative 1, is treated as a positive 1:
+	<div id="anotherDivThree" style="font-size:20px">
+		Broken
+	</div>
+	A negative percentage breaks the line the code is on, but not the whole animation
+	<div id="anotherDivFour" style="font-size:20px">
+		Broken
+	</div>
+	A negative position value works, but goes outside the page. 
+	<div id="anotherDivFive" style="font-size:20px">
+		Broken
+	</div>
+	Using to and from instead of percentages
+	<div id="anotherDivSix" style="font-size:20px">
+		Awesome
+	</div>
+	Using to before from
+	<div id="anotherDivSeven" style="font-size:20px">
+		Broken
+	</div>
 </body>
 </html>
