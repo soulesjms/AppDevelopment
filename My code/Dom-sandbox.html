@@ -1,0 +1,273 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<style>
+		div#div1 {
+			border: 1px black solid;
+		}
+		
+		div#div2 {
+			margin-top: 5px;
+			border: 1px black solid;
+		}
+		div#div3 {
+			margin-top: 5px;
+			border: 1px black solid;
+			overflow: hidden;
+		}
+		div#test1 {
+			margin-top: 5px;
+			border: 1px black solid;
+			overflow: hidden;
+		}
+		div#test2 {
+			margin-top: 5px;
+			border: 1px black solid;
+			overflow: hidden;
+		}
+		div#elements {
+			margin-top: 5px;
+			border: 1px black solid;
+			overflow: hidden;
+		}
+		div#test3 {
+			margin-top: 5px;
+			border: 1px black solid;
+			overflow: hidden;
+		}
+		div#test4 {
+			margin-top: 5px;
+			border: 1px black solid;
+			overflow: hidden;
+		}
+		div#test5 {
+			margin-top: 5px;
+			border: 1px black solid;
+			overflow: hidden;
+		}
+		div#wrapper {
+			border: 1px solid black;
+			width: 50%;
+			line-height: 100%;
+			overflow: hidden;
+		}
+		
+		table, th, td {
+		border: 1px solid black;
+		border-collapse: collapse;
+	}
+		th, td {
+		padding: 5px;
+	}
+	</style>
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>DOM examples</title>
+		
+	<script>
+	function myFunction() {
+			
+		}	
+	</script>
+		
+	</head>
+	
+	<body>
+		<div id="wrapper">
+			<script>
+				document.write(Date());
+			</script>
+			
+		<div id="div1">
+		<h1>Add a comment box</h1>
+		<button onclick="myFunction()">Press Me</button>
+		<br>
+		<input id="data" type="text" size="50" value="New text field">
+		<br>
+		<div id="content"></div>
+		
+		<script>
+			function myFunction() {
+			var x = document.createElement("INPUT");
+			x.setAttribute("type", "text");
+			x.setAttribute("value", "New text field");
+			x.setAttribute("size", "50");
+			x.setAttribute("id", "content");
+			document.getElementById("content").appendChild(x);
+		}
+		</script>
+		
+		</div>
+		
+		<div id="div2">
+		<h1>Add a cell box</h1>
+		<input type="button" onclick="insRow('myTable')" value="Insert row">
+		<br>
+		<table id="myTable" style="border: 1px solid black">
+		<tr>
+			<td>Row1 cell1</td>
+			<td>Row1 cell2</td>
+		</tr>
+		<tr>
+			<td>Row2 cell1</td>
+			<td>Row2 cell2</td>
+		</tr>
+		<tr>
+			<td>Row3 cell1</td>
+			<td>Row3 cell2</td>
+		</tr>
+		</table>
+		
+		<script>
+			function insRow(id) {
+				var node = document.createElement("TD");
+				var textnode = document.createTextNode("New");
+				node.appendChild(textnode);
+				document.getElementById("myTable").appendChild(node);
+			}
+		</script>
+		</div>
+		
+		<div id="div3">
+			<h1>Submission Form</h1>
+			<form id="frm1" action="form_action.asp">
+				First name: <input type="text" name="fname" value=""><br>
+				Last name: <input type="text" name="lname" value=""><br>
+				<br>
+				
+		</form> 
+			
+			<button onclick="myFunction3()">Press Me</button>
+			<div id="demo"></div>
+			
+		<script>
+			function myFunction3() {
+				var x = document.getElementById("frm1");
+				var text = "";
+				var i;
+				for (i = 0; i < x.length ;i++) {
+					text += x.elements[i].value + "<br>";
+    				}
+					document.getElementById("demo").innerHTML = text;
+				}
+		</script>
+			
+		</div>
+		
+		<div id="test1">
+			<p id="p1">Hello world</p>
+			<!-- Replaces the text in p2 -->
+			<p id="p2">All of this is going to be replaced</p>
+			
+			<script>
+				myElement = document.getElementById("p1");
+				document.getElementById("p2").innerHTML = 
+				"This is the text I added using DOM --> " + myElement.innerHTML;
+			</script>
+		</div>
+		
+		<div id="test2">
+			<p>Using DOM I'm going</p>
+			<p>to list all the 'p' tags</p>
+			<p> in this specific div</p>
+			<p id="display"></p>
+			<p id="display2"></p>
+			<p id="display3"></p>
+			
+			<script>
+				var x = document.getElementById("test2");
+				var y = x.getElementsByTagName("p");
+				document.getElementById("display").innerHTML = 
+				'The first paragraph inside "test2" is ' + y[0].innerHTML;
+				document.getElementById("display2").innerHTML = 
+				'The second paragraph inside "test2" is ' + y[1].innerHTML;
+				document.getElementById("display3").innerHTML = 
+				'The third paragraph inside "test2" is ' + y[2].innerHTML;
+			</script>
+		</div>
+		
+		<div id="elements">
+			<p id="display4"></p>
+			<p id="display5"><a href="http://www.google.com">click me</a></p>
+			<button onclick="myFunction4()">Press Me</button>
+		
+		<script>
+			function myFunction4 () {
+				// If you use the same element for the alert, and to display, it will
+				// go undefined.
+			document.getElementById("display4").innerHTML =
+			window.alert("Number of scripts: " + document.scripts.length);
+			document.getElementById("display4").innerHTML =
+			"Number of scripts: " + document.scripts.length;
+			document.getElementById("display5").innerHTML =
+			window.alert("Number of links: " + document.links.length);
+			document.getElementById("display5").innerHTML =
+			"Number of links: " + document.links.length;
+			}
+			
+		</script>
+		
+		</div>
+		
+		<div id="test3">
+			<a id="link" href="http://www.google.com">www.google.com</a>
+			<br>
+			<button onclick="myFunctionFive()">Press Me</button>
+			
+			<script>
+				function myFunctionFive() {
+				// Changes the link, but not the name you set for it
+				document.getElementById("link").href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+				var z = document.getElementById("link");
+				z.innerHTML = "http://www.youtube.com";
+				}
+			</script>
+		</div>
+		
+		<div id="test4">
+			<p id="hideMe"> This text is a ninja. Press the buttons to find out.</p>
+			<input type="button" value="Hide text"	onclick="document.getElementById('hideMe').style.visibility='hidden'">
+			<input type="button" value="Show text" onclick="document.getElementById('hideMe').style.visibility='visible'">
+		</div>
+		
+		<div id="test5">
+			<p>Change font color</p>
+			<button onclick="myFunction5()">Red</button>
+			<button onclick="myFunction6()">Black</button>
+		<script>
+			function myFunction5() {
+				var x = document.createElement("STYLE");
+				var t = document.createTextNode("body {color: red}");
+				x.appendChild(t);
+				document.head.appendChild(x);
+			}
+		</script>
+		<script>
+			function myFunction6() {
+				var x = document.createElement("STYLE");
+				var t = document.createTextNode("body {color: black}");
+				x.appendChild(t);
+				document.head.appendChild(x);
+			}
+		</script>
+		</div>
+		
+		<div id="test6">
+			<button onclick="myFunction7()">Try it</button>
+			<p id="p1">This is a sentence</p>
+			
+			<script>
+				//document changes the body, document.element changes the whole thing
+				function myFunction7() {
+				var x = document.createElement("P");
+				var t = document.createTextNode("This is another sentence");
+				x.appendChild(t);
+				document.getElementById("test6").appendChild(x);
+				}
+			</script>
+		</div>
+		
+		</div>
+		
+	</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<title>Arrays</title>
+<script type="text/javascript">
+	
+function compute() {
+	var list = [5, 9, 22, 34, 12, 2, 66, 1];
+	var multiplier = 5;
+	
+	var final = addEnds(list);
+	var finalTwo = getMiddle(list);
+	var finalThree = countEvens(list);
+	var finalFour = multiply(list, multiplier);
+	
+	document.getElementById("display").innerHTML = "The sum of the first and last number in the array is: " + final;
+	document.getElementById("display1").innerHTML = "The middle number of the array is: " + finalTwo;
+	document.getElementById("display2").innerHTML = "The even numbers in the array are: " + finalThree;
+	document.getElementById("display3").innerHTML = "The numbers in the array times five are: " + finalFour;
+}	
+
+function addEnds(list) {
+	var answer = list[0] + list[list.length - 1];
+	return answer;
+	
+}
+
+function getMiddle(list) {
+	var temp;
+	temp = list.length / 2;
+	var answer = list[temp];
+	return answer;
+}
+
+function countEvens(list) {
+	var answer = new Array();
+	for (var i = 0; i < list.length; i++) {
+		if (list[i] % 2 == 0) {
+			answer += list[i];
+		}
+		return answer;
+	}
+}
+
+
+function multiply(list, multiplier) {
+	var answer = new Array();
+	for (var i = 0; i < list.length; i++) {
+		answer += list[i] * multiplier + ", ";
+	}
+	return answer;
+	
+}
+</script>
+<script type="text/javascript">
+	function doPayment() {
+	var principal = document.getElementById('principal').value;
+	var p = parseFloat(principal);
+	var annualRate = document.getElementById('annualRate').value;
+	var r = parseFloat(annualRate);
+	var years = document.getElementById('years').value;
+	var y = parseFloat(years);
+	var period = document.getElementById('period').value;
+	var t = parseFloat(period);
+	
+	var final = computePayment(p, r, y, t);
+	document.getElementById("display10").innerHTML = "$" + final;
+}
+
+function computePayment(p, r, y, t) {
+	var time = -y * t;
+	var value = (p * r) / (1 - (Math.pow((1 + r), time)));
+	return value;
+}
+
+function doBalance() {
+	var principal = document.getElementById('principal').value;
+	var p = parseFloat(principal);
+	var annualRate = document.getElementById('annualRate').value;
+	var r = parseFloat(annualRate);
+	var years = document.getElementById('years').value;
+	var y = parseFloat(years);
+	var period = document.getElementById('period').value;
+	var t = parseFloat(period);
+	var payments = document.getElementById('payments').value;
+	var pay = parseFloat(payments);
+	
+	var final1 = computeBalance(p, r, y, t, pay);
+	document.getElementById("display11").innerHTML = "$" + final1;
+}
+
+function computeBalance(p, r , y, t, pay) {
+	var time = -y * t;
+	var z = (p * r) / (1 - (Math.pow((1 + r), time)));
+	var value1 = (p * (Math.pow((1 + r), pay))) - ((z * (Math.pow((1 + r), pay)) - 1) / r);
+	return value1;
+}
+	
+</script>
+</head>
+
+<body>
+<h1>Arrays</h1>
+The hard coded array is set to [5, 9, 22, 34, 12, 2, 66, 1].
+<br>
+<br>
+<button type="button" onclick="compute()">Compute</button>
+<br>
+<div id="display"></div>
+<br>
+<div id="display1"></div>
+<br>
+<div id="display2"></div>
+<br>
+<div id="display3"></div>
+<br>
+<br>
+<br>
+<br>
+<h1>Loan Calculator</h1>
+<br>
+Amount borrowed (principal) <input type="text" id="principal">
+<br>
+Annual rate (ex .065) <input type="text" id="annualRate">
+<br>
+Number of years <input type="text" id="years">
+<br>
+Period per year <input type="text" id="period">
+<br>
+<button type="button" onclick="doPayment()">Compute Payment</button>
+<br>
+<div id="display10"></div>
+<br>
+Number of payments paid to date <input type="text" id="payments">
+<br>
+<button type="button" onclick="doBalance()">Compute Payoff Amount</button>
+<br>
+<div id="display11"></div>
+</body>
+</html>

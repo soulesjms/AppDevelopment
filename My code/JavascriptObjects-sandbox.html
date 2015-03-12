@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Create a lizard</title>
+    <script>
+		function Reptile() {
+			
+		}
+		
+    	function Lizard(lizName, lizColor, lizPower, lizLength)
+        {
+            this.lizName = document.getElementById("lizardName").value;
+            this.lizColor = document.getElementById("lizardColor").value;
+            this.lizPower = document.getElementById("lizardPower").value;
+            this.lizLength = document.getElementById("lizardLength").value;
+        }
+
+        function makeLizard()
+        {
+            lizard = new Lizard();
+            
+            alert("Lizard created. Lizard's name: " + lizard.lizName);
+            alert("Your lizard's color is: " + lizard.lizColor);
+            alert("Your lizard's power is: " + lizard.lizPower);
+            alert("Your lizard's length is:" + lizard.lizLength);
+             
+            view(lizard);
+        }
+        
+    </script>
+  
+</head>
+
+<body>
+    <h1>Create a lizard</h1>
+    <p>Please enter the lizard's name</p>
+    <input type="text" id="lizardName"/>
+    <p>Please enter the lizard's color (ex. red, blue, green)</p>
+    <input type="text" id="lizardColor"/>
+    <p>Please enter the lizard's super power (ex. breathe fire, fly)</p>
+    <input type="text" id="lizardPower"/>
+    <p>Please enter how long your lizard is</p>
+    <input type="text" id="lizardLength"/>
+    <br>
+    <input type="button" value="Create Lizard" onclick="makeLizard()"/>
+   
+</body>
+</html>
